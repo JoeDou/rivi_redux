@@ -13,5 +13,6 @@ var Candidate = mongoose.model('Candidate', candidateSchema);
 Candidate.promFind = blue.promisify(Candidate.find);
 Candidate.promFindById = blue.promisify(Candidate.findById);
 Candidate.promFindByIdAndUpdate = blue.promisify(Candidate.findByIdAndUpdate);
+Candidate.promFindByIdAndRemove = blue.promisify(Candidate.findByIdAndRemove);
 
 exports.Candidate = Candidate;

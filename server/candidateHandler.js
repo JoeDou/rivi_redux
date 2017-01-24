@@ -8,7 +8,6 @@ function CandidateHandler(){
 }
 
 CandidateHandler.prototype.allCandidate = (req, res) => {
-  console.log('in all candidate')
   Candidate
   .promFind({})
   .then( models => {
@@ -51,6 +50,20 @@ CandidateHandler.prototype.updateCandidate = (req, res) => {
   .promFindByIdAndUpdate(req.params.id, req.body)
   .then(() => {
     res.sendStatus(201);
+  })
+  .catch(function(err){
+    res.json({
+      success: false,
+      message: err
+    });
+  })
+};
+
+CandidateHandler.prototype.deleteCandidate = (req, res) => {
+  Candidate
+  .promFindByIdAndRemove(req.params.id)
+  .then(() => {
+    res.sendStatus(202);
   })
   .catch(function(err){
     res.json({

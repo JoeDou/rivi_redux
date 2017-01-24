@@ -20,6 +20,10 @@ var connectRoutes = function(expressApp) {
     candidateHandler.updateCandidate(req, res);
   });
 
+  expressApp.delete('/data/candidate/:id', function (req, res) {
+    candidateHandler.deleteCandidate(req, res);
+  });
+
 }
 
 exports.connectRoutes = connectRoutes
